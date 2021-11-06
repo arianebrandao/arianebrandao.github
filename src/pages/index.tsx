@@ -16,23 +16,40 @@ type Article = {
   },
 }
 
-interface HomeProps {
-  articles: Article[];
+type Page = {
+  pageName: string;
+  slug: string;
+  hero?: {
+    heading?: string;
+    description?: string;
+  };
+  body?: {
+    id: number;
+    heading?: string;
+    text?: string;
+  };
 }
 
-export default function Home({articles}: HomeProps) {
+interface HomeProps {
+  articles: Article[];
+  page: Page;
+}
+
+export default function Home({articles, page}: HomeProps) {
+
+  console.log(page)
 
   return (
     <>
       <Head>
-        <title>Home | Ariane Brandão</title>
+        <title>{page.pageName} | Ariane Brandão</title>
       </Head>
 
       <main>
         <Header />
         <nav>nav</nav>
         <section>
-          <h1>Trabalhos e posts recentes</h1>
+          <h1>{page.body[0].heading}</h1>
 
           <ul>
             {articles.map(article => (
@@ -53,8 +70,9 @@ export default function Home({articles}: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const postsResponse = await api.get('/articles?_limit=2')
+  const pageResponse = await api.get('/pages/1')
 
-  //console.log(postsResponse)
+  const page = pageResponse.data
 
   const articles = postsResponse.data.map(article => {
     return {
@@ -67,7 +85,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      articles
+      articles,
+      page,
     },
     revalidate: 1 * 1 * 1, // 30m = second * minute * hour
   }
