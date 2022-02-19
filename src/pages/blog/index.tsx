@@ -1,5 +1,5 @@
 
-export function Blog() {
+export default function Blog() {
   return (
     <h1>Blog index</h1>
   )

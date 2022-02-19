@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: 'https://arianebrandao-cms.herokuapp.com'
+  baseURL: 'https://arianebrandao-backend.herokuapp.com/api'
 });

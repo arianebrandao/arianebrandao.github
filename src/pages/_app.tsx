@@ -1,9 +1,17 @@
-import { AppProps } from 'next/app';
+import { AppProps } from "next/app";
+import Head from "next/head";
 
-import '../styles/global.scss';
+import "../styles/global.scss";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;
