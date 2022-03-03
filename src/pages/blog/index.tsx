@@ -1,6 +1,5 @@
-
-export default function Blog() {
+export default function Posts(){
   return (
-    <h1>Blog index</h1>
+    <h1>Todos os posts</h1>
   )
 }

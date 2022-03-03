@@ -1,6 +1,6 @@
-import { AppProps } from "next/app";
 import Head from "next/head";
 
+import 'bulma/css/bulma.min.css';
 import "../styles/global.scss";
 
 function MyApp({ Component, pageProps }) {

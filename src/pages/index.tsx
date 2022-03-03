@@ -1,37 +1,26 @@
-import { GetStaticProps } from "next";
 import Link from "next/link";
 import Head from "next/head";
-import { api } from "../services/api";
+import { GetStaticProps } from "next";
+import { GraphQLClient } from "graphql-request";
+
 import Header from "../components/Header";
 
 type Article = {
-  id: string;
-  attributes: {
+  data: {
     title: string;
-    description: string;
-    content: string;
     slug: string;
+    publishedAt: string;
+    categories: {
+      name: string;
+    }[];
   };
 };
 
-type Page = {
-  id: string;
-  attributes: {
-    pageName: string;
-    slug: string;
-  }
-};
-
-interface HomeProps {
-  articles: Article[];
-  page: Page;
-}
-
-export default function Home({ articles, page }: HomeProps) {
+export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>{page.attributes.pageName} | Ariane Brandão</title>
+        <title>Home | Ariane Brandão</title>
       </Head>
 
       <main>
@@ -39,18 +28,14 @@ export default function Home({ articles, page }: HomeProps) {
         <nav>nav</nav>
 
         <section>
-          {/* <h1>{page.body[0].heading}</h1> */}
-
           <ul>
-            {articles.map((article) => (
-              <li key={article.id}>
-                <Link href={`/blog/${article.attributes.slug}`}>
-                  <a>
-                    [categoria] - {article.attributes.title}
-                  </a>
-                </Link>
-              </li>
-            ))}
+            {posts?.map((post) => {
+              return (
+                <li key={post.id}>
+                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                </li>
+              );
+            })}
           </ul>
         </section>
 
@@ -61,18 +46,28 @@ export default function Home({ articles, page }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const postsResponse = await api.get("/articles"); //articles?_limit=2
-  const pageResponse = await api.get("/pages/1");
+  const graphcms = new GraphQLClient(process.env.GRAPHQL_URL_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+    },
+  });
 
-  const page = pageResponse.data.data;
-
-  const articles = postsResponse.data.data.map((article) => article);
+  const { posts } = await graphcms.request(
+    `
+      {
+        posts {
+          id
+          slug
+          title
+        }
+      }
+    `
+  );
 
   return {
     props: {
-      articles,
-      page,
+      posts,
     },
-    revalidate: 1 * 1 * 1, // 30m = second * minute * hour
+    revalidate: 60 * 60 * 24, //24 hours
   };
 };
