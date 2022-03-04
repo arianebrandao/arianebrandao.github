@@ -1,7 +1,6 @@
 /* Variables */
 :root {
   --white: #FFFFFF;
-
   --gray-100: #e1e1e6;
   --gray-300: #a8a8b3;
   --gray-900: #121214;
@@ -20,19 +19,36 @@
 }
 
 body {
-  background: var(--gray-900);
-  color: var(--white);
+  //background: var(--gray-900);
+  //color: var(--white);
 }
 
 body, input, textarea, select, button {
-  font: 400 1rem "Roboto", sans-serif;
+  //font: 400 1rem "Roboto", sans-serif;
 }
 
 button {
   cursor: pointer;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+//Hero - Index
+@keyframes gradientBG {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.is-rainbow{
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  .title, .subtitle{
+      color: #FFFFFF;
+  }
 }
