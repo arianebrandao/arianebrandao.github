@@ -1,6 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { GraphQLClient } from "graphql-request";
 
+import styles from "./posts.module.scss";
+
 const graphcms = new GraphQLClient(process.env.GRAPHQL_URL_ENDPOINT, {
   headers: {
     Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
@@ -10,7 +12,7 @@ const graphcms = new GraphQLClient(process.env.GRAPHQL_URL_ENDPOINT, {
 export default function Post({ post }) {
   return (
     <div>
-      <h1>{post.title}</h1>
+      <h1 className={styles.teste}>{post.title}</h1>
     </div>
   );
 }
@@ -32,7 +34,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     })),
     fallback: false,
   };
-}
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { post } = await graphcms.request(
