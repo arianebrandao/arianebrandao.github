@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
+import styles from "./header.module.scss";
 import { FaGithub } from "react-icons/fa";
 
 export default function Header() {
@@ -81,8 +82,13 @@ export default function Header() {
               </a>
             </Link>
 
-            <h1 className="title">titulo</h1>
-            <h2 className="subtitle">descricao</h2>
+            <h1 className={`title my-6 ${styles.title}`}>Ariane Brandão</h1>
+            <p className={`subtitle ${styles.subtitle}`}>
+              I graduate systems analysis and development in 2016 and since then
+              I've been coding and learning new technologies. I am married and
+              have two dogs 💕. I'm a gamer and I love watching TV shows and
+              volleyball.
+            </p>
           </div>
         </div>
 
