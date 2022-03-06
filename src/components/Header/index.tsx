@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <header>
-      <section className="hero is-rainbow is-bold">
+      <section className={`hero ${styles.isRainbow} is-bold`}>
         <div className="hero-head">
           <nav className="navbar">
             <div className="container">
@@ -82,11 +82,11 @@ export default function Header() {
               </a>
             </Link>
 
-            <h1 className={`title my-6 ${styles.title}`}>Ariane Brandão</h1>
-            <p className={`subtitle ${styles.subtitle}`}>
+            <h1 className={`title has-text-white my-6 ${styles.title}`}>Ariane Brandão</h1>
+            <p className={`subtitle has-text-white ${styles.subtitle}`}>
               I graduate systems analysis and development in 2016 and since then
-              I've been coding and learning new technologies. I am married and
-              have two dogs 💕. I'm a gamer and I love watching TV shows and
+              Ive been coding and learning new technologies. I am married and
+              have two dogs 💕. Im a gamer and I love watching TV shows and
               volleyball.
             </p>
           </div>

@@ -6,6 +6,14 @@
   --gray-900: #121214;
 }
 
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Grandstander:wght@300;400;500&family=Josefin+Sans:wght@200;300;400&display=swap');
+
+// Update Bulma's global variables
+$family-sans-serif: 'Josefin Sans', "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$body-weight: 400;
+
+
 @media (max-width: 1080px) {
   html {
     font-size: 93.75%; // 16*0,9375 = 15px
@@ -18,74 +26,9 @@
   }
 }
 
-body {
-  //background: var(--gray-900);
-  //color: var(--white);
-}
-
-body,
-input,
-textarea,
-select,
-button {
-  //font: 400 1rem "Roboto", sans-serif;
-}
-
 button {
   cursor: pointer;
 }
 
-//Hero - Index
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.is-rainbow {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  .title,
-  .subtitle {
-    color: #ffffff;
-  }
-}
-
-@font-face {
-  font-family: "dk_hobgoblinregular";
-  src: url("fonts/dk-hobgoblin-webfont.woff2") format("woff2"),
-    url("fonts/dk-hobgoblin-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "hellofirstiemedium";
-  src: url("fonts/hellofirstie-webfont.woff2") format("woff2"),
-    url("fonts/hellofirstie-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "qarmic_sans_freeregular";
-  src: url("fonts/qarmic-sans-free-webfont.woff2") format("woff2"),
-    url("fonts/qarmic-sans-free-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "galeb";
-  src: url("fonts/galeb.woff2") format("woff2"),
-    url("fonts/galeb.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+// Import only what you need from Bulma
+@import "../../node_modules/bulma/bulma.sass";
