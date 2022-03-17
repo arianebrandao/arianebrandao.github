@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import styles from "./header.module.scss";
 import { FaGithub } from "react-icons/fa";
+import SocialButtons from "./SocialButtons";
 
 export default function Header() {
   //hook do menu hamburger
@@ -54,10 +55,8 @@ export default function Header() {
                   <span className="navbar-item">
                     <Link href="/contact">
                       <a className="button is-info is-inverted">
-                        <span className="icon">
-                          <FaGithub />
-                        </span>
-                        <span>Orçamento</span>
+                        <FaGithub className="icon" />
+                        <span>Faça um orçamento!</span>
                       </a>
                     </Link>
                   </span>
@@ -81,50 +80,21 @@ export default function Header() {
                 </figure>
               </a>
             </Link>
-
-            <h1 className={`title has-text-white my-6 ${styles.title}`}>Ariane Brandão</h1>
+            <h1 className={`title my-6 ${styles.title}`}>
+              Ariane Brandão
+            </h1>
             <p className={`subtitle has-text-white ${styles.subtitle}`}>
               I graduate systems analysis and development in 2016 and since then
               Ive been coding and learning new technologies. I am married and
               have two dogs 💕. Im a gamer and I love watching TV shows and
               volleyball.
             </p>
+
+            <SocialButtons/>
+
           </div>
         </div>
 
-        <div className="hero-foot">
-          <nav className="tabs is-boxed is-fullwidth">
-            <div className="container">
-              <ul>
-                <li className="is-active">
-                  <Link href="/">
-                    <a>Home</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/projects">
-                    <a>Projetos e portfólio</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog">
-                    <a>Blog</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about">
-                    <a>Sobre mim</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact">
-                    <a>Faça um orçamento!</a>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
       </section>
     </header>
   );

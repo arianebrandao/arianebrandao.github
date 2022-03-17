@@ -3,9 +3,10 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 import { GraphQLClient } from "graphql-request";
 
-import Header from "../components/Header";
+import styles from "./home.module.scss";
 
-import styles from './home.module.scss'
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 type Article = {
   data: {
@@ -28,6 +29,21 @@ export default function Home({ posts }) {
       <main>
         <Header />
 
+        <section className={styles.projects}>
+          <div className="container has-text-centered">
+            <h1 className={`title ${styles.title}`}>Projetos recentes</h1>
+            <ul>
+              {posts?.map((post) => {
+                return (
+                  <li key={post.id}>
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+
         <section className="mt-6">
           <div className="container">
             <div className="content">
@@ -45,7 +61,7 @@ export default function Home({ posts }) {
           </div>
         </section>
 
-        <footer>footer</footer>
+        <Footer />
       </main>
     </>
   );
