@@ -5,19 +5,8 @@ import { GraphQLClient } from "graphql-request";
 
 import styles from "./home.module.scss";
 
-import Header from "../components/Header";
+import HeaderMain from "../components/HeaderMain";
 import Footer from "../components/Footer";
-
-type Article = {
-  data: {
-    title: string;
-    slug: string;
-    publishedAt: string;
-    categories: {
-      name: string;
-    }[];
-  };
-};
 
 type Post = {
   id: string;
@@ -44,11 +33,10 @@ export default function Home({ posts, projects }: HomeProps) {
       </Head>
 
       <main>
-        <Header />
+        <HeaderMain />
 
-        <section className={styles["main-section"]}>
+        <section className="main-section">
           <div className="container">
-            {/* <h1 className={`title has-text-centered has-text-white ${styles.last}`}>Últimos</h1> */}
             <div className="columns">
               <div className="column">
                 <section className="has-text-right mr-5">

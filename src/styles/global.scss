@@ -4,6 +4,7 @@
   --gray-100: #e1e1e6;
   --gray-300: #a8a8b3;
   --gray-900: #121214;
+  --pink-500: #FA7C91;
 }
 
 // Import a Google Font
@@ -31,12 +32,16 @@ $info: $purple-darker;
 // Import only what you need from Bulma
 @import "../../node_modules/bulma/bulma.sass";
 
-body {
+html {
   background-color: $purple-darker;
 }
 
 a:hover{
   color: $grey-dark;
+}
+
+.main-section {
+  margin-top: 6rem;
 }
 
 @media (max-width: 1080px) {
