@@ -31,7 +31,7 @@ export default function Home({ posts, projects }) {
 
         <section className={styles.projects}>
           <div className="container">
-            <h1 className={`title ${styles.title}`}>Projetos recentes</h1>
+            <h1 className={`title has-text-white ${styles.title}`}>Projetos recentes</h1>
             <ul>
               {projects?.map((project) => {
                 return (
@@ -47,7 +47,7 @@ export default function Home({ posts, projects }) {
         <section className="mt-6">
           <div className="container">
             <div className="content">
-              <h1 className={styles.teste}>Trabalhos e posts recentes</h1>
+              <h1 className={`has-text-white ${styles.teste}`}>Trabalhos e posts recentes</h1>
               <ul>
                 {posts?.map((post) => {
                   return (

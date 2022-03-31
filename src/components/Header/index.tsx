@@ -12,9 +12,9 @@ export default function Header() {
 
   return (
     <header>
-      <section className={`hero ${styles.isRainbow} is-bold`}>
+      <section className={`hero is-link is-bold`}>
         <div className="hero-head">
-          <nav className="navbar">
+          <nav className="navbar is-link">
             <div className="container">
               <div className="navbar-brand">
                 <span
@@ -80,10 +80,10 @@ export default function Header() {
                 </figure>
               </a>
             </Link>
-            <h1 className={`title my-6 ${styles.title}`}>
+            <h1 className={`title my-6 has-text-grey-darker ${styles.title}`}>
               Ariane Brandão
             </h1>
-            <p className={`subtitle has-text-white ${styles.subtitle}`}>
+            <p className={`subtitle  ${styles.subtitle}`}>
               I graduate systems analysis and development in 2016 and since then
               Ive been coding and learning new technologies. I am married and
               have two dogs 💕. Im a gamer and I love watching TV shows and
