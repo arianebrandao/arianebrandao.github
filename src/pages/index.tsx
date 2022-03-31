@@ -29,34 +29,44 @@ export default function Home({ posts, projects }) {
       <main>
         <Header />
 
-        <section className={styles.projects}>
+        <section className={styles["main-section"]}>
           <div className="container">
-            <h1 className={`title has-text-white ${styles.title}`}>Projetos recentes</h1>
-            <ul>
-              {projects?.map((project) => {
-                return (
-                  <li key={project.id}>
-                    <Link href={`/projects/${project.slug}`}>{project.name}</Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </section>
-
-        <section className="mt-6">
-          <div className="container">
-            <div className="content">
-              <h1 className={`has-text-white ${styles.teste}`}>Trabalhos e posts recentes</h1>
-              <ul>
-                {posts?.map((post) => {
-                  return (
-                    <li key={post.id}>
-                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
+            {/* <h1 className={`title has-text-centered has-text-white ${styles.last}`}>Últimos</h1> */}
+            <div className="columns">
+              <div className="column">
+                <section className="has-text-right mr-5">
+                  <h2 className={`title has-text-white ${styles.title}`}>
+                    Projetos
+                  </h2>
+                  <ul className={styles.list}>
+                    {projects?.map((project) => {
+                      return (
+                        <li key={project.id}>
+                          <Link href={`/projects/${project.slug}`}>
+                            {project.name}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              </div>
+              <div className="column">
+                <section className="has-text-left ml-5">
+                  <h2 className={`title has-text-white ${styles.title}`}>
+                    Posts
+                  </h2>
+                  <ul className={styles.list}>
+                    {posts?.map((post) => {
+                      return (
+                        <li key={post.id}>
+                          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              </div>
             </div>
           </div>
         </section>
