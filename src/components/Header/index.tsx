@@ -3,7 +3,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 import styles from "./header.module.scss";
-import { FaGithub } from "react-icons/fa";
 import SocialButtons from "./SocialButtons";
 
 export default function Header() {
@@ -54,8 +53,7 @@ export default function Header() {
                   </Link>
                   <span className="navbar-item">
                     <Link href="/contact">
-                      <a className="button is-info is-inverted">
-                        <FaGithub className="icon" />
+                      <a className="button is-info">
                         <span>Faça um orçamento!</span>
                       </a>
                     </Link>
@@ -99,23 +97,3 @@ export default function Header() {
     </header>
   );
 }
-
-// export const getStaticProps: GetStaticProps = async () => {
-//   const postsResponse = await api.get('/articles?_limit=2')
-
-//   const articles = postsResponse.data.map(article => {
-//     return {
-//       id: article.id,
-//       title: article.title,
-//       slug: article.slug,
-//       category: article.category,
-//     }
-//   })
-
-//   return {
-//     props: {
-//       articles
-//     },
-//     revalidate: 1 * 1 * 1, // 30m = second * minute * hour
-//   }
-// };
