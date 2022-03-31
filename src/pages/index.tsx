@@ -19,7 +19,7 @@ type Article = {
   };
 };
 
-export default function Home({ posts }) {
+export default function Home({ posts, projects }) {
   return (
     <>
       <Head>
@@ -30,13 +30,13 @@ export default function Home({ posts }) {
         <Header />
 
         <section className={styles.projects}>
-          <div className="container has-text-centered">
+          <div className="container">
             <h1 className={`title ${styles.title}`}>Projetos recentes</h1>
             <ul>
-              {posts?.map((post) => {
+              {projects?.map((project) => {
                 return (
-                  <li key={post.id}>
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  <li key={project.id}>
+                    <Link href={`/projects/${project.slug}`}>{project.name}</Link>
                   </li>
                 );
               })}
@@ -86,9 +86,22 @@ export const getStaticProps: GetStaticProps = async () => {
     `
   );
 
+  const { projects } = await graphcms.request(
+    `
+      {
+        projects {
+          id
+          slug
+          name
+        }
+      }
+    `
+  );
+
   return {
     props: {
       posts,
+      projects,
     },
     revalidate: 60 * 60 * 24, //24 hours
   };
