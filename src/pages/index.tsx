@@ -19,7 +19,24 @@ type Article = {
   };
 };
 
-export default function Home({ posts, projects }) {
+type Post = {
+  id: string;
+  slug: string;
+  title: string;
+}
+
+type Project = {
+  id: string;
+  slug: string;
+  name: string;
+}
+
+interface HomeProps {
+  posts: Post[],
+  projects: Project[],
+}
+
+export default function Home({ posts, projects }: HomeProps) {
   return (
     <>
       <Head>
