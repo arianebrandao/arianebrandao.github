@@ -21,7 +21,9 @@ type ProjectProps = {
     slug: string;
     tags: string[];
     createdAt: string;
-    description: string;
+    descriptionContent: {
+      html: string;
+    };
     demo: string;
     sourceCode: string;
     image: {
@@ -48,7 +50,7 @@ export default function Project({ project }: ProjectProps) {
 
         <section>
           <div className="container px-5">
-            <div className={`content has-text-light ${styles.content}`}>
+            <div className={`content`}>
               <div className="has-text-centered my-5">
                 {project.image?.map((img) => {
                   let prjName = img.imageProject.map((prj) => prj.name);
@@ -78,27 +80,8 @@ export default function Project({ project }: ProjectProps) {
                 )}
               </div>
 
-              {project?.description}
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                nisi ipsum, rhoncus ut dapibus at, scelerisque vitae massa.
-                Morbi consectetur nunc vitae fermentum commodo. Nulla id
-                imperdiet nunc. Morbi vestibulum auctor semper. Mauris vel
-                turpis vitae nunc pretium commodo sed et justo. Nam vitae arcu
-                in libero ullamcorper rhoncus ac vel ante. Praesent tempus
-                accumsan rhoncus. Morbi faucibus suscipit nunc cursus
-                consectetur.
-              </p>
-              <p>
-                Ut malesuada, nisi eu suscipit rhoncus, quam erat egestas neque,
-                a imperdiet dui nisl et magna. Class aptent taciti sociosqu ad
-                litora torquent per conubia nostra, per inceptos himenaeos. In
-                elementum, tellus maximus rhoncus laoreet, turpis lectus
-                faucibus justo, sit amet aliquet risus quam ultrices ante.
-                Vestibulum pulvinar pulvinar orci sit amet mattis. Praesent a
-                ultricies leo. Donec quis suscipit purus. Vestibulum convallis
-                nisl eu diam venenatis pellentesque.
-              </p>
+              <div className={`has-text-light ${styles.content}`} dangerouslySetInnerHTML={{__html: project?.descriptionContent.html}} />
+
             </div>
           </div>
         </section>
@@ -116,23 +99,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     `
     {
       projects {
-        id
-        name
         slug
-        tags
-        createdAt
-        description
-        demo
-        sourceCode
-        image {
-          id
-          url
-          width
-          height
-          imageProject {
-            name
-          }
-        }
       }
     }
   `
@@ -156,7 +123,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         slug
         tags
         createdAt
-        description
+        descriptionContent {
+          html
+        }
         demo
         sourceCode
         image {
