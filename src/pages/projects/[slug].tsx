@@ -25,8 +25,14 @@ type ProjectProps = {
     demo: string;
     sourceCode: string;
     image: {
+      id: string;
       url: string;
-    }
+      width: string;
+      height: string;
+      imageProject: {
+        name: string;
+      }[];
+    }[];
   };
 };
 
@@ -34,36 +40,45 @@ export default function Project({ project }: ProjectProps) {
   return (
     <>
       <Head>
-        <title>{project.name} | Ariane Brandão</title>
+        <title>{project?.name} | Ariane Brandão</title>
       </Head>
 
       <main>
         <HeaderSimple />
 
-        { project.tags }
-
-        <section className="main-section">
-          <div className="tags is-centered">
-            <span className="tag is-link">All</span>
-            <span className="tag is-link">Medium</span>
-            <span className="tag is-link">Size</span>
-          </div>
-
+        <section>
           <div className="container px-5">
             <div className={`content has-text-light ${styles.content}`}>
+              <div className="has-text-centered my-5">
+                {project.image?.map((img) => {
+                  let prjName = img.imageProject.map((prj) => prj.name);
 
-            {/* <figure className="image is-128x128 is-inline-block">
-              <Image
-                className="is-rounded"
-                alt="Ariane Brandao profile picture"
-                src={ project.image.url }
-                layout="fill"
-              />
-            </figure> */}
+                  return (
+                    <figure key={img.id} className="is-block">
+                      <Image
+                        alt={prjName.toString()}
+                        src={img.url}
+                        width={img.width}
+                        height={img.height}
+                        layout="fixed"
+                        className=""
+                      />
+                    </figure>
+                  );
+                })}
 
-              { project.image[0].url }
+                {project.tags && (
+                  <div className="tags is-centered">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="tag is-link is-clickable">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
 
-              { project?.description }
+              {project?.description}
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
                 nisi ipsum, rhoncus ut dapibus at, scelerisque vitae massa.
@@ -74,14 +89,15 @@ export default function Project({ project }: ProjectProps) {
                 accumsan rhoncus. Morbi faucibus suscipit nunc cursus
                 consectetur.
               </p>
-              <p>Ut malesuada, nisi eu suscipit rhoncus, quam erat
-                egestas neque, a imperdiet dui nisl et magna. Class aptent
-                taciti sociosqu ad litora torquent per conubia nostra, per
-                inceptos himenaeos. In elementum, tellus maximus rhoncus
-                laoreet, turpis lectus faucibus justo, sit amet aliquet risus
-                quam ultrices ante. Vestibulum pulvinar pulvinar orci sit amet
-                mattis. Praesent a ultricies leo. Donec quis suscipit purus.
-                Vestibulum convallis nisl eu diam venenatis pellentesque.
+              <p>
+                Ut malesuada, nisi eu suscipit rhoncus, quam erat egestas neque,
+                a imperdiet dui nisl et magna. Class aptent taciti sociosqu ad
+                litora torquent per conubia nostra, per inceptos himenaeos. In
+                elementum, tellus maximus rhoncus laoreet, turpis lectus
+                faucibus justo, sit amet aliquet risus quam ultrices ante.
+                Vestibulum pulvinar pulvinar orci sit amet mattis. Praesent a
+                ultricies leo. Donec quis suscipit purus. Vestibulum convallis
+                nisl eu diam venenatis pellentesque.
               </p>
             </div>
           </div>
@@ -109,7 +125,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
         demo
         sourceCode
         image {
+          id
           url
+          width
+          height
+          imageProject {
+            name
+          }
         }
       }
     }
@@ -138,7 +160,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         demo
         sourceCode
         image {
+          id
           url
+          width
+          height
+          imageProject {
+            name
+          }
         }
       }
     }
@@ -147,8 +175,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       slug: params.slug,
     }
   );
-
-  console.log(project)
 
   return {
     props: {
