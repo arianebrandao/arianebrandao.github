@@ -8,15 +8,15 @@ import HeaderMain from "../components/HeaderMain";
 import Footer from "../components/Footer";
 
 interface AboutProps {
-  about: {
+  page: {
     id: string;
-    descriptionContent: {
+    pageAboutMe: {
       html: string;
     };
   };
 }
 
-export default function About({ about }: AboutProps) {
+export default function About({ page }: AboutProps) {
   return (
     <>
       <Head>
@@ -38,7 +38,7 @@ export default function About({ about }: AboutProps) {
                   <div
                     className={`has-text-light ${styles.content}`}
                     dangerouslySetInnerHTML={{
-                      __html: about?.descriptionContent.html,
+                      __html: page.pageAboutMe.html,
                     }}
                   />
                 </section>
@@ -60,12 +60,12 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   });
 
-  const { about } = await graphcms.request(
+  const { page } = await graphcms.request(
     `
-      query About($id: ID!) {
-        about(where: { id: $id }) {
+      query Page($id: ID!) {
+        page(where: { id: $id }) {
           id
-          descriptionContent {
+          pageAboutMe {
             html
           }
         }
@@ -76,9 +76,11 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   );
 
+  console.log(page)
+
   return {
     props: {
-      about,
+      page,
     },
     revalidate: 60 * 60 * 24, //24 hours
   };
