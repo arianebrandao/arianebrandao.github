@@ -63,7 +63,6 @@ export default function Project({ project }: ProjectProps) {
                         width={img.width}
                         height={img.height}
                         layout="fixed"
-                        className=""
                       />
                     </figure>
                   );
@@ -80,7 +79,7 @@ export default function Project({ project }: ProjectProps) {
                 )}
               </div>
 
-              <div className={`has-text-light ${styles.content}`} dangerouslySetInnerHTML={{__html: project?.descriptionContent.html}} />
+              <div className={`has-text-light is-flex is-flex-direction-column ${styles.content}`} dangerouslySetInnerHTML={{__html: project?.descriptionContent.html}} />
 
             </div>
           </div>
