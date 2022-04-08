@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import ActiveLink from './ActiveLink'
+
 export function Navbar() {
   //hook do menu hamburger
   const [isNavbarBurgerActive, setIsNavbarBurgerActive] = useState(false);
@@ -30,24 +32,24 @@ export function Navbar() {
           className={`navbar-menu ${isNavbarBurgerActive ? "is-active" : ""}`}
         >
           <div className="navbar-end">
-            <Link href="/">
-              <a className="navbar-item is-active">Home</a>
-            </Link>
-            <Link href="/projects">
+            <ActiveLink activeClassName="is-active" href="/">
+              <a className="navbar-item">Home</a>
+            </ActiveLink>
+            <ActiveLink activeClassName="is-active" href="/projects">
               <a className="navbar-item">Projetos e portfólio</a>
-            </Link>
-            <Link href="/blog">
+            </ActiveLink>
+            <ActiveLink activeClassName="is-active" href="/blog">
               <a className="navbar-item">Blog</a>
-            </Link>
-            <Link href="/about">
+            </ActiveLink>
+            <ActiveLink activeClassName="is-active" href="/about">
               <a className="navbar-item">Sobre mim</a>
-            </Link>
+            </ActiveLink>
             <span className="navbar-item">
-              <Link href="/contact">
+              <ActiveLink activeClassName="is-active" href="/contact">
                 <a className="button is-info">
                   <span>Faça um orçamento!</span>
                 </a>
-              </Link>
+              </ActiveLink>
             </span>
           </div>
         </div>

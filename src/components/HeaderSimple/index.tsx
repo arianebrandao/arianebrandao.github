@@ -29,8 +29,7 @@ export default function HeaderMain({
               {getDate.toLocaleDateString("pt-BR")}
             </p>
 
-            {linkCode ||
-              (linkDemo && (
+            {(linkCode || linkDemo) && (
                 <div className="buttons is-centered">
                   {linkDemo && (
                     <Link href={linkDemo}>
@@ -54,7 +53,7 @@ export default function HeaderMain({
                     </Link>
                   )}
                 </div>
-              ))}
+              )}
           </div>
         </div>
       </section>

@@ -8,7 +8,7 @@ import HeaderMain from "../../components/HeaderMain";
 
 import styles from "./allposts.module.scss";
 
-type PostsProps = {
+interface PostsProps {
   posts: {
     id: string;
     slug: string;
