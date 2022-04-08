@@ -13,10 +13,15 @@ interface PostsProps {
     id: string;
     slug: string;
     title: string;
-  }[]
+  }[];
+  page: {
+    heroDescription: {
+      html: string;
+    }
+  };
 }
 
-export default function Posts({posts}: PostsProps) {
+export default function Posts({posts, page}: PostsProps) {
   return (
     <>
     <Head>
@@ -24,7 +29,7 @@ export default function Posts({posts}: PostsProps) {
     </Head>
 
     <main>
-      <HeaderMain />
+      <HeaderMain heroDescription={page.heroDescription.html} />
 
       <section className="main-section">
         <div className="container">
@@ -76,9 +81,25 @@ export const getStaticProps: GetStaticProps = async () => {
     `
   );
 
+  const { page } = await graphcms.request(
+    `
+      query Page($id: ID!) {
+        page(where: { id: $id }) {
+          heroDescription {
+            html
+          }
+        }
+      }
+    `,
+    {
+      id: "cl1qka88x0aoq0alymb1aufw6",
+    }
+  );
+
   return {
     props: {
       posts,
+      page,
     },
     revalidate: 60 * 60 * 24, //24 hours
   };

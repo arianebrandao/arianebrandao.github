@@ -13,11 +13,16 @@ type ProjectsProps = {
     id: string;
     slug: string;
     name: string;
-  }[]
+  }[];
+  page: {
+    heroDescription: {
+      html: string;
+    }
+  };
 }
 
 
-export default function Projects({projects}: ProjectsProps) {
+export default function Projects({projects, page}: ProjectsProps) {
   return (
     <>
     <Head>
@@ -25,7 +30,7 @@ export default function Projects({projects}: ProjectsProps) {
     </Head>
 
     <main>
-      <HeaderMain />
+      <HeaderMain heroDescription={page.heroDescription.html} />
 
       <section className="main-section">
         <div className="container">
@@ -77,9 +82,25 @@ export const getStaticProps: GetStaticProps = async () => {
     `
   );
 
+  const { page } = await graphcms.request(
+    `
+      query Page($id: ID!) {
+        page(where: { id: $id }) {
+          heroDescription {
+            html
+          }
+        }
+      }
+    `,
+    {
+      id: "cl1qka88x0aoq0alymb1aufw6",
+    }
+  );
+
   return {
     props: {
       projects,
+      page,
     },
     revalidate: 60 * 60 * 24, //24 hours
   };

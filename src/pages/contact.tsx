@@ -1,13 +1,22 @@
+import { GetStaticProps } from "next";
+import { GraphQLClient } from "graphql-request";
 import Head from "next/head";
-
-import styles from "./contact.module.scss";
 
 import HeaderMain from "../components/HeaderMain";
 import Footer from "../components/Footer";
 
+import styles from "./contact.module.scss";
 import { FaEnvelope, FaUser } from "react-icons/fa";
 
-export default function Contact() {
+interface ContatcProps {
+  page: {
+    heroDescription: {
+      html: string;
+    }
+  };
+}
+
+export default function Contact({ page }: ContatcProps) {
   return (
     <>
       <Head>
@@ -15,7 +24,7 @@ export default function Contact() {
       </Head>
 
       <main>
-        <HeaderMain />
+        <HeaderMain heroDescription={page.heroDescription.html} />
 
         <section className="main-section">
           <div className="container">
@@ -102,3 +111,33 @@ export default function Contact() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const graphcms = new GraphQLClient(process.env.GRAPHQL_URL_ENDPOINT, {
+    headers: {
+      Authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+    },
+  });
+
+  const { page } = await graphcms.request(
+    `
+      query Page($id: ID!) {
+        page(where: { id: $id }) {
+          heroDescription {
+            html
+          }
+        }
+      }
+    `,
+    {
+      id: "cl1qka88x0aoq0alymb1aufw6",
+    }
+  );
+
+  return {
+    props: {
+      page,
+    },
+    revalidate: 60 * 60 * 24, //24 hours
+  };
+};

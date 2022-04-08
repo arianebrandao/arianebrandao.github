@@ -1,11 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import styles from "./headerMain.module.scss";
 import SocialButtons from "./SocialButtons";
 import { Navbar } from "../Navbar";
 
-export default function HeaderMain() {
+import styles from "./headerMain.module.scss";
+
+interface HeaderMainProps {
+  heroDescription: string;
+}
+
+export default function HeaderMain({ heroDescription }: HeaderMainProps) {
   return (
     <header>
       <section className={`hero is-link is-bold`}>
@@ -30,18 +35,18 @@ export default function HeaderMain() {
             <h1 className={`title my-6 has-text-grey-darker ${styles.title}`}>
               Ariane Brandão
             </h1>
-            <p className={`subtitle  ${styles.subtitle}`}>
-              I graduate systems analysis and development in 2016 and since then
-              Ive been coding and learning new technologies. I am married and
-              have two dogs 💕. Im a gamer and I love watching TV shows and
-              volleyball.
-            </p>
+            <div className={`has-text-light ${styles.content}`} />
 
-            <SocialButtons/>
+            <p
+              className={`subtitle  ${styles.subtitle}`}
+              dangerouslySetInnerHTML={{
+                __html: heroDescription,
+              }}
+            />
 
+            <SocialButtons />
           </div>
         </div>
-
       </section>
     </header>
   );

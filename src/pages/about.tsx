@@ -13,6 +13,9 @@ interface AboutProps {
     pageAboutMe: {
       html: string;
     };
+    heroDescription: {
+      html: string;
+    }
   };
 }
 
@@ -24,7 +27,7 @@ export default function About({ page }: AboutProps) {
       </Head>
 
       <main>
-        <HeaderMain />
+        <HeaderMain heroDescription={page.heroDescription.html} />
 
         <section className="main-section">
           <div className="container">
@@ -68,6 +71,9 @@ export const getStaticProps: GetStaticProps = async () => {
           pageAboutMe {
             html
           }
+          heroDescription {
+            html
+          }
         }
       }
     `,
@@ -75,8 +81,6 @@ export const getStaticProps: GetStaticProps = async () => {
       id: "cl1qka88x0aoq0alymb1aufw6",
     }
   );
-
-  console.log(page)
 
   return {
     props: {
