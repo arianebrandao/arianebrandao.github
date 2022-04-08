@@ -46,7 +46,7 @@ export default function Project({ project }: ProjectProps) {
       </Head>
 
       <main>
-        <HeaderSimple />
+        <HeaderSimple title={project.name} date={project.createdAt} linkDemo={project.demo} linkCode={project.sourceCode} />
 
         <section>
           <div className="container px-5">

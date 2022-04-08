@@ -4,12 +4,15 @@ import { Navbar } from "../Navbar";
 import { FaGithubAlt, FaCogs } from "react-icons/fa";
 import Link from "next/link";
 
-export default function HeaderMain(
+export default function HeaderMain({
   title,
   date,
   linkDemo = null,
-  linkCode = null
-) {
+  linkCode = null,
+}) {
+  //Date format
+  var getDate = new Date(date)
+
   return (
     <header>
       <section className={`hero is-link is-bold`}>
@@ -20,12 +23,14 @@ export default function HeaderMain(
         <div className="hero-body">
           <div className="container has-text-centered">
             <h1 className={`title my-6 has-text-grey-darker ${styles.title}`}>
-              titulo projeto
+              {title}
             </h1>
-            <p className={`subtitle  ${styles.subtitle}`}>01/04/2022</p>
+            <p className={`subtitle  ${styles.subtitle}`}>
+              {getDate.toLocaleDateString("pt-BR")}
+            </p>
 
             <div className="buttons is-centered">
-              <Link href="/about">
+              <Link href={linkDemo}>
                 <a className="button is-info" target="_blank">
                   <span className="icon is-small">
                     <FaCogs />
@@ -34,7 +39,7 @@ export default function HeaderMain(
                 </a>
               </Link>
 
-              <Link href="/about">
+              <Link href={linkCode}>
                 <a className="button is-info" target="_blank">
                   <span className="icon is-small">
                     <FaGithubAlt />
