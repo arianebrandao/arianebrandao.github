@@ -11,7 +11,7 @@ export default function HeaderMain({
   linkCode = null,
 }) {
   //Date format
-  var getDate = new Date(date)
+  var getDate = new Date(date);
 
   return (
     <header>
@@ -29,25 +29,32 @@ export default function HeaderMain({
               {getDate.toLocaleDateString("pt-BR")}
             </p>
 
-            <div className="buttons is-centered">
-              <Link href={linkDemo}>
-                <a className="button is-info" target="_blank">
-                  <span className="icon is-small">
-                    <FaCogs />
-                  </span>
-                  <span>Demo</span>
-                </a>
-              </Link>
+            {linkCode ||
+              (linkDemo && (
+                <div className="buttons is-centered">
+                  {linkDemo && (
+                    <Link href={linkDemo}>
+                      <a className="button is-info" target="_blank">
+                        <span className="icon is-small">
+                          <FaCogs />
+                        </span>
+                        <span>Demo</span>
+                      </a>
+                    </Link>
+                  )}
 
-              <Link href={linkCode}>
-                <a className="button is-info" target="_blank">
-                  <span className="icon is-small">
-                    <FaGithubAlt />
-                  </span>
-                  <span>Código fonte</span>
-                </a>
-              </Link>
-            </div>
+                  {linkCode && (
+                    <Link href={linkCode}>
+                      <a className="button is-info" target="_blank">
+                        <span className="icon is-small">
+                          <FaGithubAlt />
+                        </span>
+                        <span>Código fonte</span>
+                      </a>
+                    </Link>
+                  )}
+                </div>
+              ))}
           </div>
         </div>
       </section>

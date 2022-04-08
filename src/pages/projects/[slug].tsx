@@ -3,7 +3,7 @@ import { GraphQLClient } from "graphql-request";
 import Image from "next/image";
 import Head from "next/head";
 
-import styles from "./projects.module.scss";
+import styles from "./project.module.scss";
 import HeaderSimple from "../../components/HeaderSimple";
 import Footer from "../../components/Footer";
 import { PostAuthor } from "../../components/PostAuthor";
@@ -42,11 +42,11 @@ export default function Project({ project }: ProjectProps) {
   return (
     <>
       <Head>
-        <title>{project?.name} | Ariane Brandão</title>
+        <title>{project.name} | Ariane Brandão</title>
       </Head>
 
       <main>
-        <HeaderSimple title={project.name} date={project.createdAt} linkDemo={project.demo} linkCode={project.sourceCode} />
+        <HeaderSimple title={project.name} date={project.createdAt} linkDemo={project?.demo} linkCode={project?.sourceCode} />
 
         <section>
           <div className="container px-5">
@@ -79,7 +79,7 @@ export default function Project({ project }: ProjectProps) {
                 )}
               </div>
 
-              <div className={`has-text-light is-flex is-flex-direction-column ${styles.content}`} dangerouslySetInnerHTML={{__html: project?.descriptionContent.html}} />
+              <div className={`has-text-light is-flex is-flex-direction-column ${styles.content}`} dangerouslySetInnerHTML={{__html: project.descriptionContent.html}} />
 
             </div>
           </div>
