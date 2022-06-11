@@ -17,12 +17,12 @@ export default function Footer() {
           <a target="_blank">GraphCMS</a>
         </Link>{" "}
         and {" "}
-        <Link href="https://www.linkedin.com/in/ariane-brand%C3%A3o">
+        <Link href="https://nextjs.org">
           <a target="_blank">NextJS</a>
         </Link>
         ) <br />
         Hosted by{" "}
-        <Link href="https://www.linkedin.com/in/ariane-brand%C3%A3o">
+        <Link href="https://pages.github.com/">
           <a target="_blank">Github Pages</a>
         </Link>
       </p>
