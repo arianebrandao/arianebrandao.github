@@ -9,11 +9,11 @@ Site pessoal com links para contato, sobre mim, posts sobre meus projetos/portf�
 ## Páginas
 
 ### Home:
-  - Mostrar posts de projetos (portfólio) e blog recentes
   - Header com destaque:
     - Foto pessoal
     - Breve descrição
     - Links para redes sociais e e-mail
+  -  Mostrar posts de projetos (portfólio) e blog recentes
 
 ### Sobre mim:
   - Texto contando história, conhecimentos e experiências
