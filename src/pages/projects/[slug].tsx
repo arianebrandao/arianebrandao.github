@@ -26,7 +26,7 @@ type ProjectProps = {
     };
     demo: string;
     sourceCode: string;
-    image: {
+    image?: {
       id: string;
       url: string;
       width: string;

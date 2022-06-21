@@ -46,7 +46,7 @@ export default function Post({ post }: PostProps) {
           <div className="container px-5">
             <div className={`content`}>
               <div className="has-text-centered my-5">
-                {post?.coverImage.url && (
+                {post.coverImage?.url && (
                   <figure className="is-block">
                     <Image
                       alt={post.title}
