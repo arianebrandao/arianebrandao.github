@@ -2,10 +2,10 @@ import { GetStaticProps } from "next";
 import { GraphQLClient } from "graphql-request";
 import Head from "next/head";
 
-import styles from "./about.module.scss";
+import styles from "./styles.module.scss";
 
-import HeaderMain from "../components/HeaderMain";
-import Footer from "../components/Footer";
+import HeaderMain from "../../common/components/HeaderMain";
+import Footer from "../../common/components/Footer";
 
 interface AboutProps {
   page: {

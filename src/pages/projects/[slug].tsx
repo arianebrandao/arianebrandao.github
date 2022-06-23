@@ -4,9 +4,9 @@ import Image from "next/image";
 import Head from "next/head";
 
 import styles from "./project.module.scss";
-import HeaderSimple from "../../components/HeaderSimple";
-import Footer from "../../components/Footer";
-import { PostAuthor } from "../../components/PostAuthor";
+import HeaderSimple from "../../common/components/HeaderSimple";
+import Footer from "../../common/components/Footer";
+import { PostAuthor } from "../../common/components/PostAuthor";
 
 const graphcms = new GraphQLClient(process.env.GRAPHQL_URL_ENDPOINT, {
   headers: {

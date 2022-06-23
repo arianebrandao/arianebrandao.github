@@ -3,8 +3,8 @@ import Link from "next/link";
 import { GetStaticProps } from "next";
 import { GraphQLClient } from "graphql-request";
 
-import Footer from "../../components/Footer";
-import HeaderMain from "../../components/HeaderMain";
+import Footer from "../../common/components/Footer";
+import HeaderMain from "../../common/components/HeaderMain";
 
 import styles from "./allposts.module.scss";
 

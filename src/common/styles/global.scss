@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Variables */
 :root {
   --white: #ffffff;
@@ -30,7 +34,7 @@ $grey-darker: $purple-darker;
 $info: $purple-darker;
 
 // Import only what you need from Bulma
-@import "../../node_modules/bulma/bulma.sass";
+//@import "../../node_modules/bulma/bulma.sass";
 
 html {
   background-color: $purple-darker;
