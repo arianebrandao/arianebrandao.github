@@ -12,21 +12,21 @@ type Post = {
   id: string;
   slug: string;
   title: string;
-}
+};
 
 type Project = {
   id: string;
   slug: string;
   name: string;
-}
+};
 
 interface HomeProps {
-  posts: Post[],
-  projects: Project[],
+  posts: Post[];
+  projects: Project[];
   page: {
     heroDescription: {
       html: string;
-    }
+    };
   };
 }
 
@@ -40,45 +40,37 @@ export default function Home({ page, posts, projects }: HomeProps) {
       <main>
         <HeaderMain heroDescription={page.heroDescription.html} />
 
-        <section className="main-section">
-          <div className="container">
-            <div className="columns">
-              <div className="column">
-                <section className="has-text-right mr-5">
-                  <h2 className={`title has-text-white ${styles.title}`}>
-                    Projetos
-                  </h2>
-                  <ul className={styles.list}>
-                    {projects?.map((project) => {
-                      return (
-                        <li key={project.id}>
-                          <Link href={`/projects/${project.slug}`}>
-                            {project.name}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </section>
-              </div>
-              <div className="column">
-                <section className="has-text-left ml-5">
-                  <h2 className={`title has-text-white ${styles.title}`}>
-                    Posts
-                  </h2>
-                  <ul className={styles.list}>
-                    {posts?.map((post) => {
-                      return (
-                        <li key={post.id}>
-                          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </section>
-              </div>
-            </div>
+        <section className="container columns-2">
+          <div className="text-right">
+            <h2 className="text-3xl my-8">
+              Projetos
+            </h2>
+            <ul className="">
+              {projects?.map((project) => {
+                return (
+                  <li key={project.id}>
+                    <Link href={`/projects/${project.slug}`}>
+                      {project.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
+
+          <div className="text-left">
+            <h2 className="text-3xl my-8">Posts</h2>
+            <ul className="">
+              {posts?.map((post) => {
+                return (
+                  <li key={post.id}>
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+         
         </section>
 
         <Footer />

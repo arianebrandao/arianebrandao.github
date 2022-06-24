@@ -2,64 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Variables */
-:root {
-  --white: #ffffff;
-  --gray-100: #e1e1e6;
-  --gray-300: #a8a8b3;
-  --gray-900: #121214;
-  --pink-500: #FA7C91;
-}
-
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css2?family=Boogaloo&family=Grandstander:wght@300;400;500&family=Josefin+Sans:wght@200;300;400&display=swap');
 
-// Update Bulma's global variables
-$family-sans-serif: 'Josefin Sans', "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-$body-weight: 400;
-
-// Set your brand colors
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$purple-darker: #302f3d;
-
-// Update Bulma's global variables
-$grey-dark: $brown;
-$grey-light: $beige-light;
-$primary: $purple;
-$link: $pink;
-$grey-darker: $purple-darker;
-$info: $purple-darker;
-
-// Import only what you need from Bulma
-//@import "../../node_modules/bulma/bulma.sass";
-
-html {
-  background-color: $purple-darker;
+body {
+  @apply bg-purple-10 text-white font-josefin text-lg;
 }
 
 a:hover{
-  color: $grey-dark;
+  @apply text-purple-10;
 }
 
-.main-section {
-  margin-top: 6rem;
-}
+// .main-section {
+//   margin-top: 6rem;
+// }
 
-@media (max-width: 1080px) {
-  html {
-    //font-size: 93.75%; // 16*0,9375 = 15px
-    font-size: 87.5%; // 16*0,875 = 14px
-  }
-}
+// @media (max-width: 1080px) {
+//   html {
+//     font-size: 87.5%; // 16*0,875 = 14px
+//   }
+// }
 
-@media (max-width: 720px) {
-  html {
-    font-size: 81.25%; // 16*0,8125 = 13px
-  }
-}
+// @media (max-width: 720px) {
+//   html {
+//     font-size: 81.25%; // 16*0,8125 = 13px
+//   }
+// }
 
 button {
   cursor: pointer;
