@@ -3,8 +3,6 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 import { GraphQLClient } from "graphql-request";
 
-import styles from "./home/styles.module.scss";
-
 import HeaderMain from "../common/components/HeaderMain";
 import Footer from "../common/components/Footer";
 
@@ -40,12 +38,12 @@ export default function Home({ page, posts, projects }: HomeProps) {
       <main>
         <HeaderMain heroDescription={page.heroDescription.html} />
 
-        <section className="container columns-2">
+        <section className="container columns-2 gap-4">
           <div className="text-right">
             <h2 className="text-3xl my-8">
               Projetos
             </h2>
-            <ul className="">
+            <ul>
               {projects?.map((project) => {
                 return (
                   <li key={project.id}>
@@ -60,7 +58,7 @@ export default function Home({ page, posts, projects }: HomeProps) {
 
           <div className="text-left">
             <h2 className="text-3xl my-8">Posts</h2>
-            <ul className="">
+            <ul>
               {posts?.map((post) => {
                 return (
                   <li key={post.id}>

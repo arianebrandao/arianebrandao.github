@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { FaHeart } from "react-icons/fa";
 import styles from "./footer.module.scss";
 
 export default function Footer() {
   return (
-    <footer className={`mt-5 has-text-centered has-background-dark ${styles.footer}`}>
-      <hr className="has-background-link"/>
+    <footer className="mt-5 text-center">
       <p>
         Ariane Brandão © 2022 <br />
         Made with 💕 (also{" "}

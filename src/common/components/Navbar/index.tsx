@@ -8,7 +8,7 @@ export function Navbar() {
   const [isNavbarBurgerActive, setIsNavbarBurgerActive] = useState(false);
 
   return (
-    <nav className="navbar flex justify-end ">
+    <nav className="navbar flex justify-end">
       <div className="navbar-brand">
         <span
           className={`navbar-burger ${isNavbarBurgerActive ? "is-active" : ""}`}
@@ -29,19 +29,19 @@ export function Navbar() {
         className={`navbar-menu flex gap-3 mr-4 ${isNavbarBurgerActive ? "is-active" : ""}`}
       >
         <ActiveLink activeClassName="underline" href="/">
-          <a className="">Home</a>
+          <a className="text-white">Home</a>
         </ActiveLink>
         <ActiveLink activeClassName="underline" href="/projects">
-          <a className="">Projetos e portfólio</a>
+          <a className="text-white">Projetos e portfólio</a>
         </ActiveLink>
         <ActiveLink activeClassName="underline" href="/blog">
-          <a className="">Blog</a>
+          <a className="text-white">Blog</a>
         </ActiveLink>
         <ActiveLink activeClassName="underline" href="/about">
-          <a className="">Sobre mim</a>
+          <a className="text-white">Sobre mim</a>
         </ActiveLink>
         <ActiveLink activeClassName="underline" href="/contact">
-          <a className="button is-info">Faça um orçamento!</a>
+          <a className="text-white">Faça um orçamento!</a>
         </ActiveLink>
       </div>
     </nav>

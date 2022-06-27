@@ -9,8 +9,11 @@ body {
   @apply bg-purple-10 text-white font-josefin text-lg;
 }
 
-a:hover{
-  @apply text-purple-10;
+a {
+  @apply text-brand-500;
+  &:hover {
+    @apply text-brown-500;
+  }
 }
 
 // .main-section {
