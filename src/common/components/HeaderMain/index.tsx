@@ -1,14 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { request, gql } from "graphql-request";
+import { request } from "graphql-request";
+import { useEffect, useState } from "react";
 
 import SocialButtons from "./SocialButtons";
 import { Navbar } from "../Navbar";
-import { useEffect, useState } from "react";
-
-interface HeaderMainProps {
-  heroDescription: string;
-}
 
 export default function HeaderMain() {
   const [description, setDescription] = useState("");
