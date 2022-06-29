@@ -13,9 +13,6 @@ interface AboutProps {
     pageAboutMe: {
       html: string;
     };
-    heroDescription: {
-      html: string;
-    }
   };
 }
 
@@ -27,7 +24,7 @@ export default function About({ page }: AboutProps) {
       </Head>
 
       <main>
-        <HeaderMain heroDescription={page.heroDescription.html} />
+        <HeaderMain />
 
         <section className="main-section">
           <div className="container">
@@ -69,9 +66,6 @@ export const getStaticProps: GetStaticProps = async () => {
         page(where: { id: $id }) {
           id
           pageAboutMe {
-            html
-          }
-          heroDescription {
             html
           }
         }
