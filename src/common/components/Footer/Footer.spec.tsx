@@ -1,10 +1,10 @@
-import { waitFor, render, screen } from "@testing-library/react";
-import { debug } from "console";
+import { render, screen } from "@testing-library/react";
 import Footer from '.';
 
 describe("Footer component", () => {
     it("renders correctly", async () => {
-        const { getAllByText } = render(<Footer />);
-        expect(getAllByText("Ariane")).toBeInTheDocument();
+        render(<Footer />);
+
+        expect(screen.getAllByText("Ariane")).toBeInTheDocument();
     });
 });
