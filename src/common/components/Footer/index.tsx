@@ -1,11 +1,10 @@
 import Link from "next/link";
-import styles from "./footer.module.scss";
 
 export default function Footer() {
   return (
     <footer className="mt-5 text-center">
-      <p>
-        Ariane Brandão © 2022 <br />
+      <p data-testid="name">Ariane Brandão © 2022</p>
+      <p data-testid="technologies">
         Made with 💕 (also{" "}
         <Link href="https://www.linkedin.com/in/ariane-brand%C3%A3o">
           <a target="_blank">Bulma</a>
@@ -14,11 +13,13 @@ export default function Footer() {
         <Link href="https://graphcms.com">
           <a target="_blank">GraphCMS</a>
         </Link>{" "}
-        and {" "}
+        and{" "}
         <Link href="https://nextjs.org">
           <a target="_blank">NextJS</a>
         </Link>
-        ) <br />
+        ){" "}
+      </p>
+      <p data-testid="host">
         Hosted by{" "}
         <Link href="https://pages.github.com/">
           <a target="_blank">Github Pages</a>
