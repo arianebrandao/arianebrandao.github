@@ -11,12 +11,12 @@ export function PostAuthor() {
         <div className="columns">
           <div className="column is-2 is-flex is-justify-content-center">
             <figure className="image is-128x128 is-inline-block">
-              <Image
+              {/* <Image
                 className="is-rounded"
                 alt="Ariane Brandao profile picture"
                 src="https://github.com/arianebrandao.png"
                 layout="fill"
-              />
+              /> */}
             </figure>
           </div>
           <div className="column is-flex is-flex-direction-column is-justify-content-center">

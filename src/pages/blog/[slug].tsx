@@ -33,6 +33,9 @@ type PostProps = {
 };
 
 export default function Post({ post }: PostProps) {
+  //Date format
+  var getDate = new Date(post.createdAt);
+
   return (
     <>
       <Head>
@@ -40,7 +43,7 @@ export default function Post({ post }: PostProps) {
       </Head>
 
       <main>
-        <HeaderSimple title={post.title} date={post.createdAt} />
+        <HeaderSimple title={post.title} date={getDate.toLocaleDateString("pt-BR")} />
 
         <section>
           <div className="container px-5">

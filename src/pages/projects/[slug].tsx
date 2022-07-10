@@ -39,6 +39,9 @@ type ProjectProps = {
 };
 
 export default function Project({ project }: ProjectProps) {
+  //Date format
+  var getDate = new Date(project.createdAt);
+  
   return (
     <>
       <Head>
@@ -46,7 +49,7 @@ export default function Project({ project }: ProjectProps) {
       </Head>
 
       <main>
-        <HeaderSimple title={project.name} date={project.createdAt} linkDemo={project?.demo} linkCode={project?.sourceCode} />
+        <HeaderSimple title={project.name} date={getDate.toLocaleDateString("pt-BR")} linkDemo={project?.demo} linkCode={project?.sourceCode} />
 
         <section>
           <div className="container px-5">

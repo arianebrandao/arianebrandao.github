@@ -1,4 +1,4 @@
-import styles from "./headerSimple.module.scss";
+import styles from "./styles.module.scss";
 import { Navbar } from "../Navbar";
 
 import { FaGithubAlt, FaCogs } from "react-icons/fa";
@@ -10,9 +10,6 @@ export default function HeaderMain({
   linkDemo = null,
   linkCode = null,
 }) {
-  //Date format
-  var getDate = new Date(date);
-
   return (
     <header>
       <section className={`hero is-link is-bold`}>
@@ -26,7 +23,7 @@ export default function HeaderMain({
               {title}
             </h1>
             <p className={`subtitle  ${styles.subtitle}`}>
-              {getDate.toLocaleDateString("pt-BR")}
+              {date}
             </p>
 
             {(linkCode || linkDemo) && (
