@@ -6,7 +6,7 @@ import { GraphQLClient } from "graphql-request";
 import Footer from "../../common/components/Footer";
 import HeaderMain from "../../common/components/HeaderMain";
 
-import styles from "./allprojects.module.scss";
+import styles from "./allProjects.module.scss";
 
 type ProjectsProps = {
   projects: {

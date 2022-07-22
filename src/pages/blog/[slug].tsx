@@ -34,7 +34,7 @@ type PostProps = {
 
 export default function Post({ post }: PostProps) {
   //Date format
-  var getDate = new Date(post.createdAt);
+  const getDate = new Date(post.createdAt);
 
   return (
     <>

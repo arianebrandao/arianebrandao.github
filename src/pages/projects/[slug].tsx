@@ -40,7 +40,7 @@ type ProjectProps = {
 
 export default function Project({ project }: ProjectProps) {
   //Date format
-  var getDate = new Date(project.createdAt);
+  const getDate = new Date(project.createdAt);
   
   return (
     <>
