@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
-import { GetStaticProps } from "next";
-import { request, GraphQLClient } from "graphql-request";
+import { request } from "graphql-request";
 import Link from "next/link";
 import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
@@ -42,7 +40,9 @@ export default function HeaderMain() {
     }
   );
 
-  if (error) return "Ocorreu o erro ao renderizar descrição: " + error;
+  if (error) {
+    throw new Error('Ocorreu o erro: ' + error)
+  }
 
   return (
     <header className="bg-brand-500 py-5 h-80">
